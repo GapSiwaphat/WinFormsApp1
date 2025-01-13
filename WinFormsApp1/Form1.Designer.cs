@@ -32,7 +32,6 @@
             btnInsert = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
-            btnClear = new Button();
             txtShipperID = new TextBox();
             txtCompanyName = new TextBox();
             txtPhone = new TextBox();
@@ -50,6 +49,7 @@
             dgvShippers.Name = "dgvShippers";
             dgvShippers.Size = new Size(642, 150);
             dgvShippers.TabIndex = 0;
+            dgvShippers.CellMouseDoubleClick += dgvShippers_CellMouseDoubleClick;
             dgvShippers.CellMouseUp += dgvShippers_CellMouseUp;
             // 
             // btnInsert
@@ -85,16 +85,6 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnClear
-            // 
-            btnClear.Location = new Point(550, 362);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(100, 42);
-            btnClear.TabIndex = 4;
-            btnClear.Text = "ล้างฟอร์ม";
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
-            // 
             // txtShipperID
             // 
             txtShipperID.Location = new Point(195, 203);
@@ -102,6 +92,7 @@
             txtShipperID.ReadOnly = true;
             txtShipperID.Size = new Size(152, 23);
             txtShipperID.TabIndex = 5;
+            txtShipperID.Visible = false;
             // 
             // txtCompanyName
             // 
@@ -109,6 +100,7 @@
             txtCompanyName.Name = "txtCompanyName";
             txtCompanyName.Size = new Size(317, 23);
             txtCompanyName.TabIndex = 6;
+            txtCompanyName.Visible = false;
             // 
             // txtPhone
             // 
@@ -116,6 +108,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(200, 23);
             txtPhone.TabIndex = 7;
+            txtPhone.Visible = false;
             txtPhone.TextChanged += txtPhone_TextChanged;
             // 
             // label1
@@ -126,6 +119,7 @@
             label1.Size = new Size(76, 15);
             label1.TabIndex = 8;
             label1.Text = "รหัสบริษัทขนส่ง";
+            label1.Visible = false;
             // 
             // label2
             // 
@@ -135,6 +129,7 @@
             label2.Size = new Size(46, 15);
             label2.TabIndex = 9;
             label2.Text = "ชื่อบริษัท";
+            label2.Visible = false;
             // 
             // label3
             // 
@@ -144,6 +139,7 @@
             label3.Size = new Size(46, 15);
             label3.TabIndex = 10;
             label3.Text = "โทรศัพท์";
+            label3.Visible = false;
             // 
             // Form1
             // 
@@ -156,13 +152,12 @@
             Controls.Add(txtPhone);
             Controls.Add(txtCompanyName);
             Controls.Add(txtShipperID);
-            Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnInsert);
             Controls.Add(dgvShippers);
             Name = "Form1";
-            Text = "Form1";
+            Text = "ระบบจัดการข้อมูล";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvShippers).EndInit();
             ResumeLayout(false);
@@ -175,7 +170,6 @@
         private Button btnInsert;
         private Button btnUpdate;
         private Button btnDelete;
-        private Button btnClear;
         private TextBox txtShipperID;
         private TextBox txtCompanyName;
         private TextBox txtPhone;
